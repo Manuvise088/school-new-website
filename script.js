@@ -2,17 +2,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const sezioni_selector = document.getElementsByClassName("sezioni-container")[0];
     const scrollToTopButton = document.getElementById("scrollToTop");
 
-    if (sezioni_selector) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                sezioni_selector.style.width = "94%";
-                sezioni_selector.style.backgroundColor = "white";
-            } else {
-                sezioni_selector.style.width = "95%";
-                sezioni_selector.style.backgroundColor = "#f8f8f87a";
-            }
-        });
-    }
+if (sezioni_selector) {
+    const handleResize = () => {
+        if (window.innerWidth >= 1024) {
+            // Mostra solo su desktop
+            sezioni_selector.style.display = "flex"; // o "block" a seconda del tuo layout
+            
+            // Aggiungi comportamento scroll se necessario
+            window.addEventListener('scroll', handleScroll);
+            handleScroll(); // Inizializza lo stato
+        } else {
+            // Nascondi completamente su mobile
+            sezioni_selector.style.display = "none";
+            window.removeEventListener('scroll', handleScroll);
+        }
+    };
+
+    const handleScroll = () => {
+        if (window.scrollY > 50) {
+            sezioni_selector.style.width = "94%";
+            sezioni_selector.style.backgroundColor = "white";
+            sezioni_selector.style.backdropFilter = "none";
+        } else {
+            sezioni_selector.style.width = "95%";
+            sezioni_selector.style.backgroundColor = "#f8f8f87a";
+            sezioni_selector.style.backdropFilter = "blur(10px)";
+        }
+    };
+
+    // Gestisci il resize della finestra
+    window.addEventListener('resize', handleResize);
+    
+    // Inizializza allo stato corretto
+    handleResize();
+}
 
     if (scrollToTopButton) {
         window.addEventListener('scroll', () => {
@@ -24,7 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
- async function fetchWpNews() {
+
+    async function fetchWpNews() {
         const newsGrid = document.getElementById('news-grid');
         
         try {
@@ -92,4 +116,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     fetchWpNews();
-});
+
+    // Mobile menu functionality
+    const menuButton = document.getElementById('menu-button');
+    const closeMenu = document.getElementById('close-menu');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (menuButton && mobileMenu && closeMenu) {
+        menuButton.addEventListener('click', () => {
+            mobileMenu.style.left = '0';
+        });
+        
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.style.left = '-100vw';
+        });
+    }
+})

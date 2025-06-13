@@ -266,6 +266,7 @@ body button {
     border-radius: 1vw;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     filter: brightness(0.7);
+    object-fit: cover;
 }
 .motto {
     position: absolute;
@@ -812,4 +813,206 @@ hr {
 
 .news-error a:hover {
     transform: scale(0.9);
+}
+#header-desktop {
+    display: block;
+}
+
+#header-mobile {
+    display: none;
+    display: block;
+    background-color: #12ADEF;
+    padding: 1.5vh;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 999;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    margin-bottom: 20vh;
+}
+#header-mobile {
+    display: none; /* Hidden by default - will be shown in media query */
+    background-color: #12ADEF;
+    padding: 1.5vh;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 999;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+/* Only show on mobile */
+@media (max-width: 1024px) {
+    #header-mobile {
+        display: block;
+    }
+}
+
+body {
+    padding-top: 0;
+    transition: padding-top 0.3s ease;
+}
+
+@media (max-width: 1024px) {
+    body {
+        padding-top: 11vh;
+    }
+    #sezione_risalto h1 {
+        font-size: 4vh;
+        margin-right: -1vh;
+    }
+}
+@media (max-width: 1024px) {
+    #header-desktop {
+        display: none;
+    }
+    
+    #header-mobile {
+        display: block;
+        border-bottom-right-radius: 2vh;
+        border-bottom-left-radius: 2vh;
+    }
+    
+    #mobile-header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .mobile-logo {
+        max-width: 20vh;
+        height: auto;
+        background-color: white;
+        border-radius: 2vh;
+        padding: 1vh;
+    }
+    
+    #menu-button, #mobile-login {
+        font-size: 5vh;
+        color: white;
+        cursor: pointer;
+    }
+    
+    #mobile-menu {
+        position: fixed;
+        top: 0;
+        left: -100vw;
+        width: 80%;
+        max-width: 350px;
+        height: 100vh;
+        background-color: white;
+        z-index: 2000;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+        overflow-y: auto;
+        transition: left 0.3s ease;
+    }
+    
+    .mobile-menu-header {
+        padding: 2vh;
+        background-color: #0b85b5;
+        display: flex;
+        justify-content: flex-end;
+    }
+    
+    #close-menu {
+        color: white;
+        font-size: 4vh;
+        cursor: pointer;
+    }
+    
+    .mobile-menu-content {
+        padding: 2vh;
+    }
+    
+    .mobile-menu-item {
+        display: flex;
+        align-items: center;
+        padding: 2vh;
+        margin-bottom: 1vh;
+        color: #0b85b5;
+        text-decoration: none;
+        font-size: 2.5vh;
+        border-radius: 1vh;
+        transition: all 0.3s;
+    }
+    
+    .mobile-menu-item:hover {
+        background-color: #f0f8ff;
+    }
+    
+    .mobile-menu-item span {
+        margin-right: 2vh;
+        font-size: 3vh;
+    }
+    
+    .img_body {
+        height: 40vh;
+        width: 95%;
+        margin-top: 2vh;
+        object-fit: cover;
+    }
+    
+    .motto {
+        top: 60%;
+        width: 90%;
+        font-size: 2.5vh;
+        padding: 1.5vh;
+    }
+    
+    .autore_motto {
+        top: 60%;
+        transform: translate(-50%, 120%);
+        font-size: 2vh;
+        padding: 1.5vh;
+        max-width: 80%;
+    }
+}
+
+@media (min-width: 1px) and (max-width: 1199px) {
+    .piattaforme-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .indirizzi-card {
+        grid-template-columns: 1fr 1fr;
+    }
+    #sezione_risalto h2 {
+        display: none;
+    }
+    #sezione_risalto span {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .piattaforme-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .piattaforma-card img {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .img_body {
+        height: 30vh;
+    }
+    .autore_motto {
+        margin-top: auto;
+    }
+}
+
+@media (min-width: 1025px) {
+    #mobile-menu {
+        display: none;
+    }
+}
+@media (min-width: 1px) and (max-width: 1024px) {
+    .motto {
+        display: none;
+    }
+    
+    .autore_motto {
+        display: none;
+    }
 }
