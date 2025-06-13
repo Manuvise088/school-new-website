@@ -385,6 +385,7 @@ hr {
     color: #0b85b5;
     font-size: 4vh;
     margin-bottom: 3vh;
+    text-align: left;
 }
 
 .piattaforme-grid {
@@ -789,5 +790,26 @@ hr {
 }
 .card-header4 {
     background: linear-gradient(to right, #9b59b6, #8e44ad);
-}op: 3vh;
+}
+.news-error p{
+    color: black;
+    font-size: 3vh;
+    font-weight: bold;
+}
+.news-error a {
+    text-decoration: none;
+    padding: 2vh;
+    background-image: linear-gradient(to right, #12ADEF, #0b85b5);
+    color: white !important;
+    font-size: 2.5vh !important;
+    border-radius: 2vh;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.news-error a:hover {
+    transform: scale(0.9);
 }

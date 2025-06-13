@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Errore nel caricamento delle notizie:', error);
             newsGrid.innerHTML = `
                 <div class="news-error" style="grid-column: 1 / -1; text-align: center; padding: 3vh;">
-                    <span class="material-icons-outlined" style="font-size: 4vh; color: #ff6b6b;">error</span>
+                    <span class="material-icons-outlined" style="font-size: 4vh; color: #0b85b5;">error</span>
                     <p>Non è stato possibile caricare le ultime notizie.</p>
                     <a href="https://www.silvioceccato.edu.it" target="_blank" style="color: #12ADEF;">
                         Visita il sito della scuola
