@@ -831,7 +831,7 @@ hr {
     margin-bottom: 20vh;
 }
 #header-mobile {
-    display: none; /* Hidden by default - will be shown in media query */
+    display: none;
     background-color: #12ADEF;
     padding: 1.5vh;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -840,8 +840,19 @@ hr {
     width: 100%;
     top: 0;
 }
-
-/* Only show on mobile */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    z-index: 2000;
+    display: none;
+    overflow-y: hidden;
+}
 @media (max-width: 1024px) {
     #header-mobile {
         display: block;
@@ -855,7 +866,7 @@ body {
 
 @media (max-width: 1024px) {
     body {
-        padding-top: 11vh;
+        padding-top: 13vh;
     }
     #sezione_risalto h1 {
         font-size: 4vh;
@@ -880,11 +891,12 @@ body {
     }
     
     .mobile-logo {
-        max-width: 20vh;
+        max-width: 30vh;
         height: auto;
         background-color: white;
         border-radius: 2vh;
         padding: 1vh;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     
     #menu-button, #mobile-login {
@@ -905,6 +917,8 @@ body {
         box-shadow: 2px 0 10px rgba(0,0,0,0.2);
         overflow-y: auto;
         transition: left 0.3s ease;
+        border-bottom-right-radius: 2vh;
+        border-top-right-radius: 2vh;
     }
     
     .mobile-menu-header {
@@ -1015,4 +1029,60 @@ body {
     .autore_motto {
         display: none;
     }
+}
+#servizi_container {
+    width: 95%;
+    padding: 3vh;
+    background-color: #ffffffd9;
+    border-radius: 1vw;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    text-align: center;
+}
+
+#servizi_container h1 {
+    color: #0b85b5;
+    text-align: left;
+    font-size: 4vh;
+    margin-bottom: 3vh;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 1vh;
+}
+#progetti_card {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2vh;
+    margin-top: 2vh;
+}
+#progetto, #progetto-uscita {
+    position: relative;
+    background-color: white;
+    border-radius: 2vh;
+    padding: 2px;
+    padding: 2vh;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+#progetto img {
+    width: 10vh;
+    border-radius: 2vh;
+    border: none;
+    background-color: white;
+    margin-bottom: 2vh;
+}
+#progetto-uscita img {
+    width: 10vh;
+    border-radius: 2vh;
+    border: none;
+    background-color: white;
+    transform: rotate(180deg);
+    margin-bottom: 2vh;
+}
+#progetto h2, #progetto-uscita h2 {
+    font-size: 4vh;
+    color: #0b85b5;
+    text-decoration: none;
+}
+#progetto a, #progetto-uscita a {
+    text-decoration: none;
 }

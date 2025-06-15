@@ -5,14 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
 if (sezioni_selector) {
     const handleResize = () => {
         if (window.innerWidth >= 1024) {
-            // Mostra solo su desktop
-            sezioni_selector.style.display = "flex"; // o "block" a seconda del tuo layout
+            sezioni_selector.style.display = "flex";
             
-            // Aggiungi comportamento scroll se necessario
             window.addEventListener('scroll', handleScroll);
-            handleScroll(); // Inizializza lo stato
+            handleScroll();
         } else {
-            // Nascondi completamente su mobile
             sezioni_selector.style.display = "none";
             window.removeEventListener('scroll', handleScroll);
         }
@@ -30,10 +27,8 @@ if (sezioni_selector) {
         }
     };
 
-    // Gestisci il resize della finestra
     window.addEventListener('resize', handleResize);
     
-    // Inizializza allo stato corretto
     handleResize();
 }
 
@@ -117,18 +112,22 @@ if (sezioni_selector) {
     
     fetchWpNews();
 
-    // Mobile menu functionality
     const menuButton = document.getElementById('menu-button');
     const closeMenu = document.getElementById('close-menu');
     const mobileMenu = document.getElementById('mobile-menu');
-    
-    if (menuButton && mobileMenu && closeMenu) {
+    const overlay = document.querySelector('.overlay');
+
+    if (menuButton && mobileMenu && closeMenu && overlay) {
         menuButton.addEventListener('click', () => {
             mobileMenu.style.left = '0';
+            overlay.style.display = 'block';
+            document.body.style.overflow = 'hidden';
         });
         
         closeMenu.addEventListener('click', () => {
             mobileMenu.style.left = '-100vw';
+            overlay.style.display = 'none';
+            document.body.style.overflow = '';
         });
     }
 })
