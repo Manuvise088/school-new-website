@@ -19,6 +19,7 @@
         transform: translateX(0);
     }
 }
+
 @keyframes fadeoutright{
     0%{
         opacity: 1;
@@ -88,7 +89,7 @@ h1, h2, h3, h4, h5, h6, p {
 }
 body {
     background-color: #12ADEF;
-    font-family: 'National Park', sans-serif;
+    font-family: 'Product Sans', sans-serif;
     font-size: 1.75vh;
     color: white;
     background-image: linear-gradient(to bottom, #12ADEF, #0b85b5);
@@ -99,7 +100,8 @@ body {
     overflow-x: hidden;
 }
 body button {
-    font-family: 'National Park';
+    font-family: 'Product Sans';
+    font-weight: bold;
 }
 #header-container {
     display: flex;
@@ -228,7 +230,6 @@ body button {
 .sezione:hover {
     background-color: #12ADEF !important;
     color: white;
-    font-weight: bold;
     box-sizing: border-box;
 }
 
@@ -568,7 +569,7 @@ hr {
     border: none;
     background: transparent;
     padding: 1vh;
-    font-family: 'National Park', sans-serif;
+    font-family: 'Product Sans', sans-serif;
     font-size: 1.8vh;
     width: 100%;
     outline: none;
@@ -684,7 +685,10 @@ hr {
     right: 2vh;
     padding: 2vh;
     border-radius: 2vh;
-    border: 1px solid black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: white;
+    border: none;
+    border: 1.5px solid white;
     background-image: linear-gradient(to bottom, #12ADEF, #0b85b5);
     animation: fadeinleft 0.2s linear 0s 1 normal;
 }
@@ -840,6 +844,20 @@ hr {
     width: 100%;
     top: 0;
 }
+.mobile-menu-header img {
+    width: 10vh;
+    height: auto;
+    border-radius: 2vh;
+    display: block;
+    margin-right: auto;
+    object-fit: cover;
+}
+.mobile-menu-header h2 {
+    display: block;
+    margin-right: auto;
+    margin-left: -21vh;
+    margin-top: 2vh;
+}
 .overlay {
     position: fixed;
     top: 0;
@@ -849,7 +867,7 @@ hr {
     background: rgba(0, 0, 0, 0.5);
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
-    z-index: 2000;
+    z-index: 1999;
     display: none;
     overflow-y: hidden;
 }
@@ -952,6 +970,8 @@ body {
     
     .mobile-menu-item:hover {
         background-color: #f0f8ff;
+        transform: translateX(1vw);
+        font-weight: bold;
     }
     
     .mobile-menu-item span {
@@ -1085,4 +1105,7 @@ body {
 }
 #progetto a, #progetto-uscita a {
     text-decoration: none;
+}
+.news-error a {
+    margin-left: 2vh;
 }
